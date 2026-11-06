@@ -1,17 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ModaMía | Tienda de Ropa</title>
+    <meta name="description" content="ModaMía es una tienda moderna de ropa, accesorios y estilo para cada día." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container nav">
+        <div class="brand" aria-label="Logo de la marca">
+          <span class="brand-mark">M</span>
+          <span>ModaMía</span>
+        </div>
 
-    <div id="contenedor"></div>
-    <button id="boton"> nombre</button>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#colecciones">Colecciones</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button id="cart-toggle" class="cart-button" aria-label="Abrir carrito">
+          Carrito <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="eyebrow">Nueva temporada</p>
+            <h1>Estilo premium para cada momento.</h1>
+            <p class="hero-description">
+              Ropa moderna, versátil y elegante para lucir con confianza desde la mañana hasta la noche.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#catalogo" class="primary-btn">Ver colección</a>
+              <button class="secondary-btn" id="shop-now">Comprar ahora</button>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>10k+</strong>
+                <span>clientes</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>valoración</span>
+              </div>
+              <div>
+                <strong>48h</strong>
+                <span>envío</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Modelo de ropa moderna">
+            <div class="image-card main-image">
+              <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="Modelo con chaqueta negra" />
+            </div>
+            <div class="floating-tag tag-top">Trending</div>
+            <div class="floating-tag tag-bottom">Off 30%</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <div class="container benefits-grid">
+          <article>
+            <span class="benefit-icon">✓</span>
+            <h3>Envío rápido</h3>
+            <p>Entrega segura y ágil en todo el país.</p>
+          </article>
+          <article>
+            <span class="benefit-icon">★</span>
+            <h3>Calidad premium</h3>
+            <p>Materiales cómodos y diseño pensado para durar.</p>
+          </article>
+          <article>
+            <span class="benefit-icon">⟲</span>
+            <h3>Devoluciones</h3>
+            <p>Cambios sencillos si necesitas ajustar tu compra.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="colecciones" class="collections">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Colecciones</p>
+              <h2>Explora tus favoritos</h2>
+            </div>
+          </div>
+
+          <div class="collections-grid">
+            <article class="collection-card collection-one">
+              <div>
+                <p>Women</p>
+                <h3>Looks esenciales</h3>
+              </div>
+              <a href="#catalogo">Ver más</a>
+            </article>
+
+            <article class="collection-card collection-two">
+              <div>
+                <p>Men</p>
+                <h3>Street casual</h3>
+              </div>
+              <a href="#catalogo">Ver más</a>
+            </article>
+
+            <article class="collection-card collection-three">
+              <div>
+                <p>Accessories</p>
+                <h3>Detalles premium</h3>
+              </div>
+              <a href="#catalogo">Ver más</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalogo" class="catalogue">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Catálogo</p>
+              <h2>Lo más vendido</h2>
+            </div>
+
+            <div class="filters" aria-label="Filtros de productos">
+              <button class="filter-btn active" data-category="all">Todo</button>
+              <button class="filter-btn" data-category="women">Mujer</button>
+              <button class="filter-btn" data-category="men">Hombre</button>
+              <button class="filter-btn" data-category="girls">Niña</button>
+              <button class="filter-btn" data-category="kids">Niño</button>
+              <button class="filter-btn" data-category="shoes">Zapatos</button>
+              <button class="filter-btn" data-category="socks">Medias</button>
+              <button class="filter-btn" data-category="accessories">Accesorios</button>
+            </div>
+          </div>
+
+          <div id="product-list" class="product-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <div class="container showcase-inner">
+          <div class="showcase-info">
+            <p class="eyebrow">Editorial</p>
+            <h2>La elegancia empieza con lo simple.</h2>
+            <p>
+              Encuentra prendas que se adapten a tu rutina, a tu estilo y a tus momentos más importantes.
+            </p>
+            <a href="#catalogo" class="primary-btn">Descubrir</a>
+          </div>
+
+          <div class="showcase-visual">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Chica con outfit elegante" />
+          </div>
+        </div>
+      </section>
+
+      <section id="usuarios" class="users-section">
+        <div class="container users-grid">
+          <div class="auth-card">
+            <p class="eyebrow">Admin</p>
+            <h3>Acceso del administrador</h3>
+            <form id="admin-login-form" class="auth-form">
+              <input type="email" id="admin-email" placeholder="Correo administrador" required />
+              <input type="password" id="admin-password" placeholder="Contraseña administrador" required />
+              <button type="submit" class="primary-btn">Entrar como admin</button>
+            </form>
+          </div>
+
+          <div class="auth-card">
+            <p class="eyebrow">Registro</p>
+            <h3>Crear usuario</h3>
+            <form id="register-form" class="auth-form">
+              <input type="text" id="register-name" placeholder="Nombre completo" required />
+              <input type="email" id="register-email" placeholder="Correo electrónico" required />
+              <input type="password" id="register-password" placeholder="Contraseña" required />
+              <button type="submit" class="primary-btn">Registrarme</button>
+            </form>
+          </div>
+
+          <div class="auth-card">
+            <p class="eyebrow">Acceso</p>
+            <h3>Iniciar sesión</h3>
+            <form id="login-form" class="auth-form">
+              <input type="email" id="login-email" placeholder="Correo electrónico" required />
+              <input type="password" id="login-password" placeholder="Contraseña" required />
+              <button type="submit" class="primary-btn">Entrar</button>
+            </form>
+            <button id="logout-btn" class="secondary-btn logout-btn">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <div id="admin-panel" class="container admin-panel">
+          <div class="admin-header">
+            <div>
+              <p class="eyebrow">Panel</p>
+              <h3>Administrador</h3>
+            </div>
+            <span id="current-user-badge" class="user-badge">Invitado</span>
+          </div>
+
+          <div class="admin-summary">
+            <div class="summary-item">
+              <strong id="total-users">0</strong>
+              <span>Usuarios</span>
+            </div>
+            <div class="summary-item">
+              <strong id="total-orders">0</strong>
+              <span>Pedidos</span>
+            </div>
+          </div>
+
+          <div id="admin-user-list" class="admin-user-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand" aria-label="Logo de la marca">
+            <span class="brand-mark">M</span>
+            <span>ModaMía</span>
+          </div>
+          <p>Ropa pensada para vivir con estilo cada día.</p>
+        </div>
+
+        <div>
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#colecciones">Colecciones</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li>hola@modamia.com</li>
+            <li>+54 11 5555 8899</li>
+            <li>Buenos Aires, Argentina</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <aside id="cart-panel" class="cart-panel" aria-label="Carrito de compras">
+      <div class="cart-header">
+        <h3>Tu carrito</h3>
+        <button id="close-cart" class="close-cart" aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="subtotal">$0</strong>
+        </div>
+
+        <div class="payment-options">
+          <label>
+            <input type="radio" name="payment-method" value="nequi" checked />
+            Nequi
+          </label>
+          <label>
+            <input type="radio" name="payment-method" value="efectivo" />
+            Efectivo
+          </label>
+        </div>
+
+        <button id="checkout-btn" class="checkout-btn">Finalizar compra</button>
+      </div>
+    </aside>
+
+    <div id="toast" class="toast" aria-live="assertive"></div>
 
     <script src="script.js"></script>
-    
-</body>
+  </body>
 </html>
